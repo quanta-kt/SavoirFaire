@@ -12,6 +12,9 @@ export default {
       daisyui: {
         themes: ["light", "dark", "cupcake","dracula","nord"],
       },
+      backgroundImage: {
+        'landing': "url(../imgs/landing.jpg)"
+      }
     }
   },
   
