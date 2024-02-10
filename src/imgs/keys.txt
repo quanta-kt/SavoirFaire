@@ -1,5 +1,20 @@
-import logo from "../imgs/Ezproperty logo.svg";
+appliaction ID= 565615
+CGEwkt6T94PMt2ypupRiH-ucC3xVhM3Fn7RnDuOHHd0 =access key
+WY-DAB0eoyCLCNaGHX1o2pjlvKp8ZTC91H8WT6JuKO8 =secrte_key
 
+
+pexels
+MzK6H7GoG5h6LiLyLLRTxSC0o6zaDtIrQzQQPhVs9Y1oj50PWEkOkrzQ
+
+auth
+curl -H "Authorization: MzK6H7GoG5h6LiLyLLRTxSC0o6zaDtIrQzQQPhVs9Y1oj50PWEkOkrzQ" \
+  "https://api.pexels.com/v1/search?query=people"
+
+
+
+// import React from "react";
+// import { Link } from "react-router-dom";
+import logo from "../imgs/Ezproperty logo.svg";
 function Navbar() {
   return (
     <>
