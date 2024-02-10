@@ -47,7 +47,7 @@ function Filters({ filters, onChange }) {
       </div>
 
       {showFilters && (
-        <div className=" flex flex-col gap-1 w-full">
+        <div className=" flex flex-col gap-1 w-full animate-fade-down animate-once animate-duration-200">
           <div className="flex gap-3 w-full">
             <label className="form-control w-full">
               <div className="label">
@@ -168,7 +168,7 @@ function Listing() {
   const { items, isLoading } = useListingItems(filters);
 
   return (
-    <div className="lg:mx-60 mx-4 min-h-screen">
+    <div className="lg:mx-60 mx-4 min-h-screen mt-10">
       <Filters filters={filters} onChange={setFilters} />
 
       {isLoading && (
