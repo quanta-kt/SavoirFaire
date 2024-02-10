@@ -156,7 +156,8 @@ function useListingItems(filters) {
 
     getDocs(listingQuery)
       .then((snap) => {
-        setItems(snap.docs.map((it) => ({ ...it.data(), id: it.id })));
+        const items = snap.docs.map((it) => ({ ...it.data(), id: it.id }));
+        setItems(items);
       })
       .finally(() => setIsLoading(false));
   }, [filters]);
@@ -189,7 +190,7 @@ function Listing() {
         <p className=" text-xl text-center">{"No results found :("}</p>
       )}
 
-      {!isLoading && items.length && (
+      {!isLoading && !!items.length && (
         <div className="my-5 rounded-xl overflow-clip">
           <MapView
             style={{
@@ -197,7 +198,7 @@ function Listing() {
               height: "600px",
             }}
             points={items.map((it) => ({
-              position: [it.lat, it[" lon"].trim()],
+              position: [it.lat, +it[" lon"].trim()],
               content: (
                 <div className="flex flex-col gap-1">
                   <b>{it.property_name}</b>

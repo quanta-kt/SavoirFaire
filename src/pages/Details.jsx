@@ -41,7 +41,7 @@ const Details = ({}) => {
   const { propertyId } = useParams();
 
   const details = useDetails(propertyId);
-  const position = details && [details.lat, details[" lon"].trim()];
+  const position = details && [details.lat, +details[" lon"].trim()];
 
   return (
     <div>
