@@ -10,6 +10,7 @@ import AppLayout from "./components/AppLayout";
 import Login from "./pages/Login";
 import NewLogin from "./pages/NewLogin";
 import Details from "./pages/Details";
+import MapPage from "./pages/MapPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
             <Route path="l" element={<Landing />} />
             <Route path="n" element={<NewLogin />} />
+            <Route path="map/:lat/:lon" element={<MapPage />} />
           </Route>
         </Routes>
       </Router>

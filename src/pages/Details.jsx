@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Chip from "../components/Chip";
 import Housedetails from "../components/Housedetails";
-import { FaMagnifyingGlassLocation } from "react-icons/fa6";
+import {
+  FaLocationDot,
+  FaLocationPin,
+  FaMagnifyingGlassLocation,
+  FaMapLocation,
+  FaMapPin,
+  FaPerson,
+  FaUser,
+} from "react-icons/fa6";
 import { MdCrisisAlert } from "react-icons/md";
 import { useParams } from "react-router";
-import {
-  getDoc,
-  getFirestore,
-  query,
-  collection,
-  doc,
-} from "@firebase/firestore";
+import { getDoc, getFirestore, doc } from "@firebase/firestore";
 import { useFirebase } from "../service/firebase";
 import images from "./images.json";
+import "leaflet/dist/leaflet.css";
+import MapView from "../components/MapView";
+import { Link } from "react-router-dom";
 
 function useDetails(propertyId) {
   const app = useFirebase();
@@ -36,6 +41,7 @@ const Details = ({}) => {
   const { propertyId } = useParams();
 
   const details = useDetails(propertyId);
+  const position = details && [details.lat, details[" lon"].trim()];
 
   return (
     <div>
@@ -48,17 +54,20 @@ const Details = ({}) => {
       {details && (
         <>
           <div className="flex gap-24 px-10 py-10 justify-center w-full">
-            <div className="w-1/3 h-1/2 bg-slate-50 overflow-hidden rounded-md animate-fade-right animate-once animate-duration-1000 animate-delay-300 ">
-              <img className="h-full w-full" src={getImage(details.id)} />
+            <div className="w-1/4 aspect-square overflow-hidden rounded-md animate-fade-right animate-once animate-duration-1000 animate-delay-300 ">
+              <MapView
+                position={position}
+                allowZoom={false}
+                style={{ height: 500, width: 500 }}
+              />
             </div>
 
             <div className=" overflow-y-auto hide-scrollbar px-2 py-2 min-w-[30%] gap-2 animate-fade-left animate-once animate-duration-1000 animate-delay-300">
-              <h2 className="card-title px-2 py-2 text-5xl ">
-                <FaMagnifyingGlassLocation size={40} />
+              <h2 className="card-title px-2 py-2 text-5xl gap-3">
                 {details.property_name}
               </h2>
-              <Housedetails Class={"text-2xl flex items-center mb-10"}>
-                <MdCrisisAlert size={25} className="self-center" />
+              <Housedetails Class={"text-2xl flex items-center mb-10 gap-3"}>
+                <FaUser size={25} className="self-center" />
                 Seller: {details.seller_name}
               </Housedetails>
 
@@ -84,9 +93,16 @@ const Details = ({}) => {
                     "p-1 text-3xl text-semibold w-fit text-slate-200 rounded-xl"
                   }
                 >
-                  Starting from ₹{details.price}
+                  ₹{details.price}
                 </Housedetails>
               </div>
+
+              <Link
+                to={`/app/map/${position[0]}/${position[1]}`}
+                className="btn btn-lg btn-primary"
+              >
+                <FaLocationDot /> Show location
+              </Link>
             </div>
           </div>
           <div className="w-full px-5 py-2 flex gap-5 justify-center">
