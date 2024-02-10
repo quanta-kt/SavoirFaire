@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Landing from "./pages/Landing";
 import { Firebase } from "./service/firebase";
-import Listing from "./pages/Listing";
+import Listing from "./pages/Listing,";
 import AppLayout from "./components/AppLayout";
 import Login from "./pages/Login";
 import NewLogin from "./pages/NewLogin";

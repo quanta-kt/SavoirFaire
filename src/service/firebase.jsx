@@ -9,13 +9,12 @@ export function Firebase({ children }) {
 
   useEffect(() => {
     const firebaseConfig = {
-      apiKey: "AIzaSyCxZbP4tmPCtqR4HFx0h0zPjvIo-cexLSE",
-      authDomain: "savoirfaire-d6e1b.firebaseapp.com",
-      projectId: "savoirfaire-d6e1b",
-      storageBucket: "savoirfaire-d6e1b.appspot.com",
-      messagingSenderId: "205215299537",
-      appId: "1:205215299537:web:40d72648fbbabfb41ad2f0",
-      measurementId: "G-M8KX3NLCT6",
+      apiKey: "AIzaSyCSTtLohIIawdNQau6XHAeS0bwI41clPiU",
+      authDomain: "asdfghj-d382f.firebaseapp.com",
+      projectId: "asdfghj-d382f",
+      storageBucket: "asdfghj-d382f.appspot.com",
+      messagingSenderId: "235101980290",
+      appId: "1:235101980290:web:f270137121100a78b1569b",
     };
 
     const app = initializeApp(firebaseConfig);
