@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "../components/Card";
 import Button from "../components/Button";
+import data from "./data.json";
 
 const landArray = [
   {
@@ -119,13 +120,14 @@ function Listing() {
     <div className="lg:mx-60 mx-4 min-h-screen">
       <Filters />
       <div className="grid lg:grid-cols-2 gap-8">
-        {landArray.map((item) => {
+        {data.map((item) => {
           return (
             <Card
-              description={item.des}
-              headline={item.headline}
-              url={item.image}
+              description={item.area_type}
+              headline={item.property_name}
+              url={landArray[0].image}
               labels={["2BHK", "Fully furnished"]}
+              key={item.property_name}
             />
           );
         })}

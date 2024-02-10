@@ -8,6 +8,7 @@ import { Firebase } from "./service/firebase";
 import Listing from "./pages/Listing";
 import AppLayout from "./components/AppLayout";
 import Login from "./pages/Login";
+import NewLogin from "./pages/NewLogin";
 
 function App() {
   return (
@@ -20,9 +21,10 @@ function App() {
             <Route index element={<Home />} />
             <Route path="listing" element={<Listing />} />
             <Route path="l" element={<Landing />} />
+            <Route path="l" element={<Landing />} />
+            <Route path="n" element={<NewLogin />} />
           </Route>
         </Routes>
-        <Footer />
       </Router>
     </Firebase>
   );
