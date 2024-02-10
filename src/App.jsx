@@ -19,8 +19,7 @@ function App() {
           <Route path="/app" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="listing" element={<Listing />} />
-            <Route path="/l" element={<Landing />} />
-
+            <Route path="l" element={<Landing />} />
           </Route>
         </Routes>
         <Footer />
