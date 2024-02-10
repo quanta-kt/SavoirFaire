@@ -10,12 +10,11 @@ import {
   where,
 } from "firebase/firestore";
 import images from "./images.json";
+import { useNavigate } from "react-router";
 
 function getImage(id) {
-  console.log(id);
-  const inx = (id.charCodeAt(0) ^ id.charCodeAt(2)) % images.length;
+  const inx = (id.charCodeAt(0) ^ id.charCodeAt(1)) % images.length;
   const imgId = images[inx].id;
-  console.log(id, inx, imgId);
 
   return `https://i.imgur.com/${imgId}.jpeg`;
 }
@@ -143,7 +142,6 @@ function useListingItems(filters) {
         conditions.push(where("price", ">", 10000000));
       } else {
         const [l, u] = filters.range.split("_");
-        console.log(l, u);
         conditions.push(where("price", ">", +l));
         conditions.push(where("price", "<", +u));
       }
@@ -166,6 +164,8 @@ function useListingItems(filters) {
 function Listing() {
   const [filters, setFilters] = useState(defaultFilters);
   const { items, isLoading } = useListingItems(filters);
+
+  const navigate = useNavigate();
 
   return (
     <div className="lg:mx-60 mx-4 min-h-screen mt-10">
@@ -200,6 +200,7 @@ function Listing() {
               area={item.site_location}
               price={item.price}
               item={item}
+              onClick={() => navigate(`/app/property/${item.id}`)}
             />
           );
         })}

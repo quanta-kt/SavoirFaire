@@ -22,7 +22,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="listing" element={<Listing />} />
             <Route path="l" element={<Landing />} />
-            <Route path="details" element={<Details />} />
+            <Route path="property/:propertyId" element={<Details />} />
 
             <Route path="l" element={<Landing />} />
             <Route path="n" element={<NewLogin />} />
