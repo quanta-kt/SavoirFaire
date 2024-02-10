@@ -27,19 +27,20 @@ const landArray = [
 
 function Listing() {
   return (
-    <>
-      <div className="w-full min-h-screen flex flex-col">
+    <div className="mx-60 min-h-screen">
+      <div className="grid grid-cols-2 gap-8">
         {landArray.map((item) => {
           return (
             <Card
               description={item.des}
               headline={item.headline}
               url={item.image}
+              labels={["2BHK", "Fully furnished"]}
             />
           );
         })}
       </div>
-    </>
+    </div>
   );
 }
 

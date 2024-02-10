@@ -1,21 +1,25 @@
 import React from "react";
+import Chip from "./Chip";
 
-const Card = ({ url, description, headline }) => {
+const Card = ({ url, description, headline, labels }) => {
   return (
     <>
-      <div className="max-w-[70%] w-full flex item-center justify-center mx-auto py-2">
-        <div className=" min-w-[90%] card card-side bg-base-400 shadow-xl gap-1">
-          <figure className="max-w-[20%]">
-            <img src={url} alt="img" className="h-[100%]" />
-          </figure>
+      <div className="card card-side bg-base-400 shadow-xl">
+        <figure className="w-[30%]">
+          <img className="h-[100%] object-cover" src={url} alt="img" />
+        </figure>
 
-          <div className="card-body px-4 py-1">
-            <h2 className="card-title">{headline}</h2>
-            <p>{description}</p>
+        <div className="card-body py-4">
+          <h2 className="card-title">{headline}</h2>
+          <p>{description}</p>
+          <div className="mt-1">
+            {labels?.map((it) => (
+              <Chip>{it}</Chip>
+            ))}
+          </div>
 
-            <div className="card-actions justify-end py-2">
-              <button className="btn btn-primary">View</button>
-            </div>
+          <div className="card-actions justify-end">
+            <button className="btn btn-primary">View</button>
           </div>
         </div>
       </div>
