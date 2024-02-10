@@ -1,14 +1,13 @@
-// import React from "react";
 import Navbar from "../components/Navbar";
 import landing from "../imgs/landing1.jpg";
 
 const TagLine = ({ text }) => {
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center">
-      <h1 className="font-custom text-bold text-[5rem]  text-blue-500 animate-fade-right animate-duration-[2000ms] animate-character">
+      <h1 className="font-custom text-extrabold text-[5rem]  text-blue-500 animate-fade-right animate-duration-[2000ms] animate-character">
         EZProperty
       </h1>
-      <p className="text-2xl font-bold text-white animate-fade-right animate-duration-[2000ms]">
+      <p className="text-2xl font-extrabold text-white animate-fade-right animate-duration-[2000ms]">
         {text}
       </p>
     </div>
