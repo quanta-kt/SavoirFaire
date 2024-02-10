@@ -19,7 +19,11 @@ const Card = ({
                   animate-fade-up animate-duration-500 animate-ease-linear"
       >
         <figure className="w-[30%]">
-          <img className="h-[100%] object-cover" src={url} alt="img" />
+          <img
+            className="h-[100%] object-cover scale-[1.5]"
+            src={url}
+            alt="img"
+          />
         </figure>
 
         <div className="card-body py-4">

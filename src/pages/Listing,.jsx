@@ -8,33 +8,17 @@ import {
   collection,
   getDocs,
   where,
-  addDoc,
 } from "firebase/firestore";
-import data from "./data.json";
+import images from "./images.json";
 
-const landArray = [
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-48224861/original/ea78d580-d19d-49e2-8657-f01154e786ca.jpeg?im_w=720",
-    des: "Details for item 1.",
-    headline: "Information about land 1.",
-  },
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-52960006/original/6e21b2e3-4a50-44f7-9641-dc9ae2e2ef4e.jpeg?im_w=720",
-    des: "Details for item 2.",
-    headline: "Information about land 2.",
-  },
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-52960006/original/6e21b2e3-4a50-44f7-9641-dc9ae2e2ef4e.jpeg?im_w=720",
-    des: "Details for item 3.",
-    headline: "Information about land 3.",
-  },
-];
+function getImage(id) {
+  console.log(id);
+  const inx = (id.charCodeAt(0) ^ id.charCodeAt(2)) % images.length;
+  const imgId = images[inx].id;
+  console.log(id, inx, imgId);
+
+  return `https://i.imgur.com/${imgId}.jpeg`;
+}
 
 const defaultFilters = {
   type: "all",
@@ -209,7 +193,7 @@ function Listing() {
             <Card
               description={item.area_type}
               headline={item.property_name}
-              url={landArray[0].image}
+              url={getImage(item.id)}
               labels={labels}
               key={item.id}
               seller={item.seller_name}
