@@ -16,7 +16,7 @@
   position: relative;
 } */
 
-.animate-charcter
+.animate-character
 {
    /* text-transform: uppercase; */
   background-image: linear-gradient(
@@ -42,5 +42,348 @@
 @keyframes textclip {
   to {
     background-position: 200% center;
+  }
+}
+
+body{
+  overflow-x: hidden;
+  /* font-family: 'Rubik', sans-serif; */
+  font-family: sans-serif;
+  margin: 0px;
+}
+
+#center1{
+  position: relative;
+  top: 120px;
+}
+h1{
+  font-family: sans-serif;
+  color: white;
+  opacity: 0.9;
+  font-size: 5em;
+}
+h4{
+  color: white;
+  opacity: 0.9;
+  font-family: 'Gill Sans';
+  position: relative;
+  left: 140px;
+  top: -110px;
+}
+header{
+  background-size: 100% 100%;
+  height: 100vh;
+  width: 100%;
+}
+
+nav{
+  position: fixed; 
+  width: 100vw;
+  height: 40px;
+  display: flex;
+  flex-direction:row-reverse;
+  background-color: white;
+  
+  /* margin-left: -8px; */
+  /* opacity: 0.4; */
+  /* margin-top: -8px; */
+  z-index: 1; /*so that nav is on top everytime*/
+}
+
+nav a{
+  float: right;
+  text-decoration: none;
+  text-align: center;
+  width: 70px;
+  height: 100%;
+  padding: 10px 10px 0px 10px;
+  color: black;
+  /* background-color: gray; */
+  margin-right: 2px;
+  cursor: pointer;
+}
+
+
+#main{
+  width: 90%;
+  margin: auto;
+}
+#empty{
+  height: 150px;
+  width: 100%;
+}
+
+#one{
+  display: inline-flex;
+  width: 100%;
+  height: 300px;
+  /* background-color: greenyellow; */
+  margin: 0px;
+}
+#one #a, #b{
+  width: 50%;
+  height: 100%;
+  /* background-image: url(/agri5.jpg);
+  background-size: 100% 100%; */
+  position: relative;
+  text-align: center;
+  color: black;
+  background-color: aliceblue;
+  
+}
+#one #b{
+  background-color: greenyellow;
+}
+
+#images {
+  width: 100%;
+  height: 300px;
+  /* background-color: aqua; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+#images > img{
+  width: 22%;
+  /* width: calc(25% - 10px); */
+  height: 100%;
+  opacity: 0.6;
+}
+#images > img:hover{
+  opacity: 1;
+}
+/*Breakpoints*/
+@media (max-width: 640px){
+  #images img{
+      flex-direction: row;
+      margin-left: 5px;
+      margin-top: 15px;
+      
+      width: 48%;
+  }
+}
+/* @media (max-width: 940px){
+  #images img{
+      width: calc(20% - 10px);
+  }
+} */
+
+/*For the div images*/
+#images1{
+  width: 100%;
+  height: 300px;
+  
+  display: flex;
+  justify-content: space-between;
+}
+.img{
+  width: 22%;
+  height: 100%;
+ 
+  opacity: 0.7;
+  transition: transform 0.5s;
+}
+.img:hover{
+  opacity: 1;
+  transform: scale(1.1);
+  /* transform: rotate(360deg); */
+}
+.centered{
+  background-color: rgba(0, 0, 0, 0.1);
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+.centered:hover{
+  opacity: 0;
+}
+.centered h2,p{
+  font-size: 2rem;
+  color: rgb(254, 254, 254);
+}
+#pic1{
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-1031554768675775307/original/b14d6e48-feaa-4bc6-b1e4-27efc7e9ff22.jpeg?im_w=720);
+  background-size: 100% 100%;
+}
+#pic2{
+  background-image: url(https://a0.muscache.com/im/pictures/40d7c6ae-4fe2-49c9-9295-73c2976cfbab.jpg?im_w=720);
+  background-size: 100% 100%;
+}
+#pic3{
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-27450294/original/7714761a-4487-43aa-8f56-b063dca051cf.jpeg?im_w=720);
+  background-size: 100% 100%;
+}
+#pic4{
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-53102376/original/6364c732-b1fa-450d-b8c1-9ec363a22b40.jpeg?im_w=720);
+  background-size: 100% 100%;
+}
+/* .centered {
+  height: 100%;
+  width: 100%;
+  top: 45%;
+  left: 35%;
+  background-color: black; 
+  transform: translate(-50%, -50%);
+  color:white;
+  font-weight: bold;
+  font-size: large;
+} */
+
+h2{
+  font-family: sans-serif, 'Kanit';
+  padding-bottom:20px;
+}
+
+#main2{
+  
+  width:100%;
+  margin:auto;
+  background-color: aliceblue;
+}
+
+
+#side{
+  background-color: rgb(244, 160, 100);
+  display: inline-flex;
+  width: 100%;
+  height: 400px;  
+  margin: 0px;
+}
+#side #bg, #side #nobg{
+  width: 50%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+}
+#bg{
+  background-image: url(/imgs/agri1.jpg);
+  background-size: 100% 100%;
+}
+
+
+
+#ppl{
+  width: 90%;
+  height: 400px;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+#ppl div{
+  background-color: white;
+  border-radius: 10px;
+  height: 100%;
+  width: 25%;
+  /* box-shadow: 0.5px 1px 10px rgb(177, 174, 174); */
+}
+#ppl div:hover{
+  box-shadow:  0.5px 1px 10px rgb(177, 174, 174);
+}
+#ppl #content, #ppl #content1{
+  /* background-color: aqua; */
+  height: 80%;
+  width: 100%;
+  margin-top: 15%;
+  transition: height 0.5s, margin 0.5s, transform 0.5s; /*used this property to make smooth transition on hover*/
+}
+#ppl #content:hover{
+  /* margin-top: 0%;
+  height: 100%; */
+  transform: scale(1.1);
+}
+#ppl #content1:hover{
+  margin-top: 0%;
+  height: 100%;
+  box-shadow: none;
+  
+}
+#ppl div i{
+  color: orange;
+  transform: translate(40px, 0px);
+  font-size: 60px;
+}
+
+#last{
+  background-image: url(/imgs/agrii2.jpg);
+  background-size: 100% 100%;
+  
+  height: 700px;
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+#last1{
+  width: 30%;
+  height: 15%;
+  background-color: rgb(42, 41, 41);
+  color: white;
+  text-align: center;
+  padding-top: 5%; 
+  margin: 5%; 
+}
+#last2{
+  margin: 5%;
+  width: 45%;
+  height: 20%;
+  font-size: 25px;;
+  color: black;
+}
+/* not so important */
+#p{
+  height: 500px;
+  width: 80%;
+  margin: auto;
+}
+#p p{
+  height: 30%;
+  background-color: white;
+  border-radius: 10px;
+  margin: 10px 0px 5px 0px;
+  text-align: center;
+}
+/* until here */
+footer{
+  font-family: sans-serif;
+}
+.across{
+  width: 80%;
+  margin: auto;
+  height: 200px;
+  /* background-color: aquamarine; */
+  display: flex;
+  justify-content: space-between;   
+}
+.across ul{
+  text-decoration: none;
+  background-color: aqua;
+  position: relative;
+  right: 20px;
+  margin-top: 2px;
+}
+
+#cursive{
+  font-family: cursive;
+
+}
+
+@media screen and (max-width: 600px) and (min-width: 0px) {
+  /* #images img{
+      position: block;
+      width: 50vw;
+  }
+  header, h1{
+      width: 100vw;
+  }
+  #center1{
+      width: 100vw;
+  } */
+  #images{
+      display: flex;
+      flex-direction: row;
   }
 }

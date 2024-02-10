@@ -1,6 +1,8 @@
 import loginImg from "../imgs/login.png";
 // eslint-disable-next-line react/prop-types
-const NewLogin = ({ children }) => {
+import Login from "./Login";
+
+const NewLogin = () => {
   return (
     <>
       <div className="fixed top-0 left-0 h-full w-full overflow-auto z-50 bg-black bg-opacity-50">
@@ -10,8 +12,12 @@ const NewLogin = ({ children }) => {
             alt=""
             className="h-full rounded-l-lg rounded-bl-lg"
           />
-          {children}
+          
         </div>
+        <div className="w-[50%]">
+        <Login/>
+        </div>
+        
       </div>
     </>
   );
