@@ -1,4 +1,4 @@
-// import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import { useFirebase } from "../service/firebase";
@@ -168,7 +168,7 @@ function Listing() {
   const navigate = useNavigate();
 
   return (
-    <div className="lg:mx-60 mx-4 min-h-screen mt-10">
+    <div className="lg:mx-60 mx-4 min-h-screen my-10">
       <Filters filters={filters} onChange={setFilters} />
 
       {isLoading && (
