@@ -28,12 +28,14 @@ const landArray = [
 function Listing() {
   return (
     <>
-      <div className="w-full min-h-screen flex flex-col md:gap-0 gap-2">
+      <div className="w-full min-h-screen flex flex-col">
         {landArray.map((item) => {
           return (
-            <>
-              <Card des={item.des} headline={item.headline} url={item.image} />
-            </>
+            <Card
+              description={item.des}
+              headline={item.headline}
+              url={item.image}
+            />
           );
         })}
       </div>
