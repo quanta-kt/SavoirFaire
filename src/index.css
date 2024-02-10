@@ -16,7 +16,7 @@
   position: relative;
 } */
 
-.animate-charcter
+.animate-character
 {
    /* text-transform: uppercase; */
   background-image: linear-gradient(
@@ -71,16 +71,9 @@ h4{
   top: -110px;
 }
 header{
-  background-color: chartreuse;
-  background-image: url("/imgs/agri6.jpg");
   background-size: 100% 100%;
   height: 100vh;
-  /*610px;*/
-  /*for extending the background image to 100% of the screen portion */
-  /* margin-left: -10px; */
-  /* width: 80.5em; */
   width: 100%;
-  
 }
 
 nav{
@@ -197,7 +190,7 @@ nav a{
   /* transform: rotate(360deg); */
 }
 .centered{
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.1);
   width: 100%;
   height: 100%;
 
@@ -208,23 +201,24 @@ nav a{
 .centered:hover{
   opacity: 0;
 }
-.centered h2{
-  color: white;
+.centered h2,p{
+  font-size: 2rem;
+  color: rgb(254, 254, 254);
 }
 #pic1{
-  background-image: url(/agri5.jpg);
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-1031554768675775307/original/b14d6e48-feaa-4bc6-b1e4-27efc7e9ff22.jpeg?im_w=720);
   background-size: 100% 100%;
 }
 #pic2{
-  background-image: url(/imgs/agri4.jpg);
+  background-image: url(https://a0.muscache.com/im/pictures/40d7c6ae-4fe2-49c9-9295-73c2976cfbab.jpg?im_w=720);
   background-size: 100% 100%;
 }
 #pic3{
-  background-image: url(/imgs/agri7.jpg);
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-27450294/original/7714761a-4487-43aa-8f56-b063dca051cf.jpeg?im_w=720);
   background-size: 100% 100%;
 }
 #pic4{
-  background-image: url(/imgs/agri3.jpg);
+  background-image: url(https://a0.muscache.com/im/pictures/miso/Hosting-53102376/original/6364c732-b1fa-450d-b8c1-9ec363a22b40.jpeg?im_w=720);
   background-size: 100% 100%;
 }
 /* .centered {

@@ -8,33 +8,16 @@ import {
   collection,
   getDocs,
   where,
-  addDoc,
 } from "firebase/firestore";
-import data from "./data.json";
+import images from "./images.json";
+import { useNavigate } from "react-router";
 
-const landArray = [
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-48224861/original/ea78d580-d19d-49e2-8657-f01154e786ca.jpeg?im_w=720",
-    des: "Details for item 1.",
-    headline: "Information about land 1.",
-  },
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-52960006/original/6e21b2e3-4a50-44f7-9641-dc9ae2e2ef4e.jpeg?im_w=720",
-    des: "Details for item 2.",
-    headline: "Information about land 2.",
-  },
-  {
-    url: "https://example.com",
-    image:
-      "https://a0.muscache.com/im/pictures/miso/Hosting-52960006/original/6e21b2e3-4a50-44f7-9641-dc9ae2e2ef4e.jpeg?im_w=720",
-    des: "Details for item 3.",
-    headline: "Information about land 3.",
-  },
-];
+function getImage(id) {
+  const inx = (id.charCodeAt(0) ^ id.charCodeAt(1)) % images.length;
+  const imgId = images[inx].id;
+
+  return `https://i.imgur.com/${imgId}.jpeg`;
+}
 
 const defaultFilters = {
   type: "all",
@@ -63,7 +46,7 @@ function Filters({ filters, onChange }) {
       </div>
 
       {showFilters && (
-        <div className=" flex flex-col gap-1 w-full">
+        <div className=" flex flex-col gap-1 w-full animate-fade-down animate-once animate-duration-200">
           <div className="flex gap-3 w-full">
             <label className="form-control w-full">
               <div className="label">
@@ -159,7 +142,6 @@ function useListingItems(filters) {
         conditions.push(where("price", ">", 10000000));
       } else {
         const [l, u] = filters.range.split("_");
-        console.log(l, u);
         conditions.push(where("price", ">", +l));
         conditions.push(where("price", "<", +u));
       }
@@ -183,8 +165,10 @@ function Listing() {
   const [filters, setFilters] = useState(defaultFilters);
   const { items, isLoading } = useListingItems(filters);
 
+  const navigate = useNavigate();
+
   return (
-    <div className="lg:mx-60 mx-4 min-h-screen">
+    <div className="lg:mx-60 mx-4 min-h-screen mt-10">
       <Filters filters={filters} onChange={setFilters} />
 
       {isLoading && (
@@ -209,13 +193,14 @@ function Listing() {
             <Card
               description={item.area_type}
               headline={item.property_name}
-              url={landArray[0].image}
+              url={getImage(item.id)}
               labels={labels}
               key={item.id}
               seller={item.seller_name}
               area={item.site_location}
               price={item.price}
               item={item}
+              onClick={() => navigate(`/app/property/${item.id}`)}
             />
           );
         })}

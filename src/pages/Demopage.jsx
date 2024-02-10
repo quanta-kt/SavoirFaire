@@ -1,26 +1,63 @@
 // import React from "react";
+import Navbar from "../components/Navbar";
+import landing from "../imgs/landing1.jpg";
+
+const TagLine = ({ text }) => {
+  return (
+    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center">
+      <h1 className="font-custom text-bold text-[5rem]  text-blue-500 animate-fade-right animate-duration-[2000ms] animate-character">
+        EZProperty
+      </h1>
+      <p className="text-2xl font-bold text-white animate-fade-right animate-duration-[2000ms]">
+        {text}
+      </p>
+    </div>
+  );
+};
 
 const Demopage = () => {
   return (
     <>
-      <nav>
-        <a href="#main" id="about">
-          About
-        </a>
-        <a href="#images1">Images</a>
-        <a href="#ppl">Panel</a>
-        <a href="#last">Colleges</a>
-      </nav>
+      <Navbar />
+
       <header>
-        <center id="center1">
-          <br />
-          <br />
-          <h1>Goshegaon</h1>
-          <br />
-          <h4>चला बदल घडवुया..!</h4>
-        </center>
+        <div className="w-full h-full relative">
+          <div
+            className="w-full h-full "
+            style={{
+              backgroundImage: `url(${landing})`,
+              backgroundSize: "cover",
+            }}
+          ></div>
+          <div className="absolute inset-0 bg-black bg-opacity-40 blur"></div>
+          <TagLine text="Where Property Dreams become instant Reality!" />
+        </div>
       </header>
+
       <div id="main">
+        <div id="empty"></div>
+        <div id="images1">
+          <div className="img" id="pic1">
+            <div className="centered">
+              <h2>Ready to move Apartments</h2>
+            </div>
+          </div>
+          <div className="img" id="pic2">
+            <div className="centered">
+              <p>130+ Properties</p>
+            </div>
+          </div>
+          <div className="img" id="pic3">
+            <div className="centered">
+              <h2>Budget Buys</h2>
+            </div>
+          </div>
+          <div className="img" id="pic4">
+            <div className="centered">
+              <h2>Real-Time updates</h2>
+            </div>
+          </div>
+        </div>
         <div id="empty"></div>
         <div id="one">
           <div id="a">Features of the village</div>
@@ -42,28 +79,7 @@ const Demopage = () => {
         <div id="empty"></div>
         <div id="empty"></div>
         <div id="empty"></div>
-        <div id="images1">
-          <div className="img" id="pic1">
-            <div className="centered">
-              <h2>Centered</h2>
-            </div>
-          </div>
-          <div className="img" id="pic2">
-            <div className="centered">
-              <h2>Centered</h2>
-            </div>
-          </div>
-          <div className="img" id="pic3">
-            <div className="centered">
-              <h2>Centered</h2>
-            </div>
-          </div>
-          <div className="img" id="pic4">
-            <div className="centered">
-              <h2>Centered</h2>
-            </div>
-          </div>
-        </div>
+
         <br />
         <br />
       </div>

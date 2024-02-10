@@ -11,15 +11,21 @@ const Card = ({
   area,
   price,
   item,
+  onClick,
 }) => {
   return (
     <>
       <div
         className="card card-side glass bg-base-400 shadow-xl
                   animate-fade-up animate-duration-500 animate-ease-linear"
+        onClick={onClick}
       >
         <figure className="w-[30%]">
-          <img className="h-[100%] object-cover" src={url} alt="img" />
+          <img
+            className="h-[100%] object-cover scale-[1.5]"
+            src={url}
+            alt="img"
+          />
         </figure>
 
         <div className="card-body py-4">
