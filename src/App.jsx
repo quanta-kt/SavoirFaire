@@ -4,9 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { Firebase } from "./service/firebase";
 function App() {
   return (
-    <>
+    <Firebase>
       <Router>
         <Navbar />
         <Routes>
@@ -14,7 +15,7 @@ function App() {
         </Routes>
         <Footer />
       </Router>
-    </>
+    </Firebase>
   );
 }
 
