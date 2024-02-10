@@ -4,7 +4,7 @@ import Chip from "./Chip";
 const Card = ({ url, description, headline, labels }) => {
   return (
     <>
-      <div className="card card-side bg-base-400 shadow-xl">
+      <div className="card card-side bg-base-400 shadow-xl ">
         <figure className="w-[30%]">
           <img className="h-[100%] object-cover" src={url} alt="img" />
         </figure>
