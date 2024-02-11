@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import Card from "../components/Card";
 import Button from "../components/Button";
 import { useFirebase } from "../service/firebase";
@@ -11,6 +11,9 @@ import {
 } from "firebase/firestore";
 import images from "./images.json";
 import { useNavigate } from "react-router";
+import MapView from "../components/MapView";
+import { Link } from "react-router-dom";
+import calculateCenter from "../geometry";
 
 function getImage(id) {
   const inx = (id.charCodeAt(0) ^ id.charCodeAt(1)) % images.length;
@@ -48,7 +51,7 @@ function Filters({ filters, onChange }) {
       {showFilters && (
         <div className=" flex flex-col gap-1 w-full animate-fade-down animate-once animate-duration-200">
           <div className="flex gap-3 w-full">
-            <label className="form-control w-full">
+            {/* <label className="form-control w-full">
               <div className="label">
                 <span className="label-text">Order by</span>
               </div>
@@ -61,7 +64,7 @@ function Filters({ filters, onChange }) {
                 <option>Price</option>
                 <option>Rating</option>
               </select>
-            </label>
+            </label> */}
 
             <label className="form-control w-full">
               <div className="label">
@@ -79,7 +82,7 @@ function Filters({ filters, onChange }) {
               </select>
             </label>
 
-            <label className="form-control w-full">
+            {/* <label className="form-control w-full">
               <div className="label">
                 <span className="label-text">Filter by distance</span>
               </div>
@@ -93,7 +96,7 @@ function Filters({ filters, onChange }) {
                 <option>{"< 30km"}</option>
                 <option>{"< 50km"}</option>
               </select>
-            </label>
+            </label> */}
 
             <label className="form-control w-full">
               <div className="label">
@@ -153,7 +156,8 @@ function useListingItems(filters) {
 
     getDocs(listingQuery)
       .then((snap) => {
-        setItems(snap.docs.map((it) => ({ ...it.data(), id: it.id })));
+        const items = snap.docs.map((it) => ({ ...it.data(), id: it.id }));
+        setItems(items);
       })
       .finally(() => setIsLoading(false));
   }, [filters]);
@@ -167,6 +171,11 @@ function Listing() {
 
   const navigate = useNavigate();
 
+  const position = useMemo(
+    () => calculateCenter(items.map((it) => [it.lat, +it[" lon"].trim()])),
+    [items]
+  );
+
   return (
     <div className="lg:mx-60 mx-4 min-h-screen my-10">
       <Filters filters={filters} onChange={setFilters} />
@@ -179,6 +188,30 @@ function Listing() {
 
       {!isLoading && !items.length && (
         <p className=" text-xl text-center">{"No results found :("}</p>
+      )}
+
+      {!isLoading && !!items.length && (
+        <div className="my-5 rounded-xl overflow-clip">
+          <MapView
+            style={{
+              width: "100%",
+              height: "600px",
+            }}
+            points={items.map((it) => ({
+              position: [it.lat, +it[" lon"].trim()],
+              content: (
+                <div className="flex flex-col gap-1">
+                  <b>{it.property_name}</b>
+                  <Link to={`/app/property/${it.id}`} className="link">
+                    See more
+                  </Link>
+                </div>
+              ),
+            }))}
+            position={position}
+            zoomLevel={12}
+          />
+        </div>
       )}
 
       <div className="grid lg:grid-cols-2 gap-8">
@@ -201,6 +234,9 @@ function Listing() {
               price={item.price}
               item={item}
               onClick={() => navigate(`/app/property/${item.id}`)}
+              onClickLocationView={() =>
+                navigate(`/app/map/${item.lat}/${item[" lon"].trim()}`)
+              }
             />
           );
         })}

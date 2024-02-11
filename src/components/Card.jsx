@@ -12,24 +12,30 @@ const Card = ({
   price,
   item,
   onClick,
+  onClickLocationView,
 }) => {
   return (
     <>
       <div
         className="card card-side glass bg-base-400 shadow-xl
                   animate-fade-up animate-duration-500 animate-ease-linear"
-        onClick={onClick}
       >
         <figure className="w-[30%]">
           <img
-            className="h-[100%] object-cover scale-[1.5]"
+            onClick={onClick}
+            className="h-[100%] object-cover scale-[1.5] cursor-pointer"
             src={url}
             alt="img"
           />
         </figure>
 
         <div className="card-body py-4">
-          <h2 className="card-title">{headline}</h2>
+          <a
+            className="card-title cursor-pointer hover:underline"
+            onClick={onClick}
+          >
+            {headline}
+          </a>
           <span className="flex gap-4 items-center justify-start">
             <span>{description}</span> |
             <span className="flex gap-2 items-center justify-start">
@@ -56,7 +62,13 @@ const Card = ({
               )}
             </div>
 
-            <button className="btn btn-primary">
+            <button
+              className="btn btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                onClickLocationView(e);
+              }}
+            >
               <FaLocationDot />
               View location
             </button>
