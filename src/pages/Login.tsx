@@ -50,7 +50,7 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center ">
+    <div className=" login">
       <div
         className=" md:min-w-[30%] w-fit flex flex-col justify-center item-center items-center
         h-fit md:px-5 md:py-5 px-1 py-2 gap-5 rounded-xl border-2 z-30"

@@ -1,10 +1,12 @@
 import Navbar from "../components/Navbar";
 import landing from "../imgs/landing1.jpg";
+import { Navigate, useNavigate } from "react-router";
 
 const TagLine = ({ text }) => {
+  const Navigate = useNavigate();
   return (
     <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 text-white text-center">
-      <h1 className="font-custom text-extrabold text-[5rem]  text-blue-500 animate-fade-right animate-duration-[2000ms] animate-character">
+      <h1 className="font-custom text-extrabold text-[5rem]  text-blue-500 animate-fade-right animate-duration-[2000ms] animate-character title">
         EZProperty
       </h1>
       <p className="text-2xl font-extrabold text-white animate-fade-right animate-duration-[2000ms]">
@@ -32,55 +34,121 @@ const Demopage = () => {
           <TagLine text="Where Property Dreams become instant Reality!" />
         </div>
       </header>
-
+      {/* Header above */}
       <div id="main">
         <div id="empty"></div>
-        <div id="images1">
-          <div className="img" id="pic1">
+        <div id="images1" style={{ textAlign: "center" }}>
+          <div className="img rounded-lg" id="pic1">
             <div className="centered">
               <h2>Ready to move Apartments</h2>
             </div>
           </div>
-          <div className="img" id="pic2">
+          <div className="img rounded-lg" id="pic2">
             <div className="centered">
               <p>130+ Properties</p>
             </div>
           </div>
-          <div className="img" id="pic3">
+          <div className="img rounded-lg" id="pic3">
             <div className="centered">
               <h2>Budget Buys</h2>
             </div>
           </div>
-          <div className="img" id="pic4">
-            <div className="centered">
-              <h2>Real-Time updates</h2>
+          <div className="img rounded-lg" id="pic4">
+            <div className="centered z-10">
+              <h2>&nbsp;Real-Time updates</h2>
             </div>
           </div>
         </div>
+        {/* Now we move towards the features */}
         <div id="empty"></div>
-        <div id="one">
-          <div id="a">Features of the village</div>
-          <div id="b">
-            point 1<br />
-            point 2
+        <section id="one">
+          <div id="a">
+            <div className="carousel w-full h-full rounded-tl-lg rounded-bl-lg">
+              <div id="slide1" className="carousel-item relative w-full">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+                  className="w-full"
+                />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                  <a href="#slide4" className="btn btn-circle">
+                    ❮
+                  </a>
+                  <a href="#slide2" className="btn btn-circle">
+                    ❯
+                  </a>
+                </div>
+              </div>
+              <div id="slide2" className="carousel-item relative w-full">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+                  className="w-full"
+                />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                  <a href="#slide1" className="btn btn-circle">
+                    ❮
+                  </a>
+                  <a href="#slide3" className="btn btn-circle">
+                    ❯
+                  </a>
+                </div>
+              </div>
+              <div id="slide3" className="carousel-item relative w-full">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+                  className="w-full"
+                />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                  <a href="#slide2" className="btn btn-circle">
+                    ❮
+                  </a>
+                  <a href="#slide4" className="btn btn-circle">
+                    ❯
+                  </a>
+                </div>
+              </div>
+              <div id="slide4" className="carousel-item relative w-full">
+                <img
+                  src="https://daisyui.com/images/stock/photo-1665553365602-b2fb8e5d1707.jpg"
+                  className="w-full"
+                />
+                <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                  <a href="#slide3" className="btn btn-circle">
+                    ❮
+                  </a>
+                  <a href="#slide1" className="btn btn-circle">
+                    ❯
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+          <div
+            className="glass rounded-tr-lg rounded-br-lg text-white p-5 text-xl"
+            id="b"
+          >
+            {/* <ul>
+              <li>• MAP YOUR PROPERTIES</li>
+              <li>• GET REAL TIME PROPERTY NOTIFICATIONS</li>
+              <li>• BOOK YOUR HOUSE</li>
+              <li>• PROPERTIES AT YOUR FINGERTIPS</li>
+            </ul> */}
+            <ul>
+              <li>• Instant updates on available properties.</li>
+              <li>
+                • Real-time notifications for newly listed properties matching
+                your criteria.
+              </li>
+              <li>• Interactive map view to visualize property locations.</li>
+              <li>• Advanced search filters for precise property selection.</li>
+              <li>• Seamless booking process for selected properties.</li>
+              <li>
+                • Integration with digital payment systems for secure
+                transactions.
+              </li>
+            </ul>
+          </div>
+        </section>
         <div id="empty"></div>
-        <center>
-          <h2>Top Places</h2>
-        </center>
-        <div id="images">
-          <img src="/agri5.jpg" alt="agri img" />
-          <img src="/imgs/agri4.jpg" alt="agri img" />
-          <img src="/imgs/agri7.jpg" alt="agri img" />
-          <img id="req" src="/imgs/agri3.jpg" alt="agri img" />
-        </div>
-        <div id="empty"></div>
-        <div id="empty"></div>
-        <div id="empty"></div>
-
-        <br />
-        <br />
       </div>
       <br />
       <br />
@@ -88,11 +156,7 @@ const Demopage = () => {
       <br />
       <br />
       <br />
-      <div id="main2">
-        <div id="side">
-          <div id="bg"></div>
-          <div id="nobg">Sononrffn fgjgmrkg </div>
-        </div>
+      {/* <div id="main2">
         <br />
         <br />
         <center>
@@ -119,90 +183,12 @@ const Demopage = () => {
         </div>
         <br />
         <br />
-        <div id="last">
-          <div id="last1">
-            The ultimate village destination is here
-            <br />
-            come experience us
-          </div>
-          <div id="last2">
-            See you soon,
-            <br />
-            Very Soon,
-            <br />
-            Very very soon
-          </div>
-        </div>
-        <div id="p">
-          <p>
-            The village, Goshegaon is an ancient village which has its roots
-            from the times of Lord Rama. Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Quisquam doloremque accusantium adipisci est, eius
-            omnis dolore, repellendus sit amet rerum recusandae distinctio! Odio
-            ullam nisi sequi voluptatem dolor saepe maiores?
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae,
-            iusto dolorem incidunt laudantium eaque harum fuga reiciendis
-            quaerat, excepturi soluta quidem hic unde error asperiores
-            voluptates culpa? Delectus, saepe molestias.
-          </p>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
-            consectetur nam laboriosam exercitationem consequuntur, sint at
-            perspiciatis deserunt placeat corrupti temporibus porro commodi
-            excepturi, architecto sed culpa soluta maxime esse.
-          </p>
-        </div>
+      </div> */}
+      <div className="flex justify-center items-center w-full p-5 ">
+        <button className="btn btn-primary glass" onClick={Navigate("/n")}>
+          Signup
+        </button>
       </div>
-
-      <footer>
-        <br />
-        <br />
-        <section className="across">
-          <div id="across1">
-            Connect with us
-            <ul>
-              <li>Instagram</li>
-              <li>Twitter</li>
-              <li>Facebook</li>
-            </ul>
-          </div>
-          <div id="across2">
-            Locations
-            <ul>
-              <li>Instagram</li>
-              <li>Twitter</li>
-              <li>Facebook</li>
-            </ul>
-          </div>
-          <div id="across3">
-            Seo
-            <ul>
-              <li>Instagram</li>
-              <li>Twitter</li>
-              <li>Facebook</li>
-            </ul>
-          </div>
-          <div id="across4">
-            Schools
-            <ul>
-              <li>Instagram</li>
-              <li>Twitter</li>
-              <li>Facebook</li>
-            </ul>
-          </div>
-        </section>
-        <center id="cursive">Made with ❤️ by @Pratik_Mohite</center>
-        <center id="cursive">
-          Connect at{" "}
-          <a href="mailto:pratikmohite1401@gmail.com">
-            pratikmohite1401@gmail.com
-          </a>
-        </center>
-        <br />
-        <br />
-      </footer>
     </>
   );
 };

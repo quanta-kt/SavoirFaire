@@ -76,17 +76,11 @@ body{
   #one #a, #b{
     width: 50%;
     height: 100%;
-    /* background-image: url(/agri5.jpg);
-    background-size: 100% 100%; */
     position: relative;
-    text-align: center;
-    color: black;
-    background-color: aliceblue;
-    
+    /* text-align: center; */
+    color: white;
   }
-  #one #b{
-    background-color: greenyellow;
-  }
+  
   
   #images {
     width: 100%;
@@ -301,7 +295,8 @@ body{
   }
   /* until here */
   .title{
-    font-family: ;
+    font-family: 'Merriweather', serif;
+font-family: 'Protest Strike', sans-serif;
   }
   footer{
     font-family: sans-serif;
