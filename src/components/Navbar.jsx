@@ -11,7 +11,7 @@ function Navbar() {
         <div className="navbar-end w-full md:gap-5 gap-2">
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input type="checkbox" className="theme-controller" value="light" />
+            <input type="checkbox" className="theme-controller" value="synthwave" />
 
             {/* sun icon */}
             <svg
@@ -32,7 +32,7 @@ function Navbar() {
             </svg>
           </label>
           <a className=" btn btn-outline px-2 py-2 md:btn-sm">Login</a>
-          <a className=" btn px-2 py-2 md:btn-sm">SignUp</a>
+          
         </div>
       </div>
     </>

@@ -3,7 +3,7 @@ import "./index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 // import Footer from "./components/Footer";
-import Landing from "./pages/Landing";
+
 import { Firebase } from "./service/firebase";
 import Listing from "./pages/Listing,";
 import AppLayout from "./components/AppLayout";
@@ -22,14 +22,12 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/dp" element={<Demopage />} />
           <Route path="/n" element={<NewLogin />} />
-          {/* <Route path="/m" element={<NewLogin2 />} /> */}
           <Route path="/app" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="listing" element={<Listing />} />
-            <Route path="l" element={<Landing />} />
+
             <Route path="property/:propertyId" element={<Details />} />
 
-            <Route path="l" element={<Landing />} />
             <Route path="n" element={<NewLogin />} />
             <Route path="map/:lat/:lon" element={<MapPage />} />
           </Route>
