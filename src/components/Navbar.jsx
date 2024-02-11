@@ -15,11 +15,7 @@ function Navbar() {
         <div className="navbar-end w-full md:gap-5 gap-2">
           <label className="swap swap-rotate">
             {/* this hidden checkbox controls the state */}
-            <input
-              type="checkbox"
-              className="theme-controller"
-              value="synthwave"
-            />
+            <input type="checkbox" className="theme-controller" value="light" />
 
             {/* sun icon */}
             <svg
