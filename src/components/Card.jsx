@@ -20,7 +20,7 @@ const Card = ({
         className="card card-side glass bg-base-400 shadow-xl
                   animate-fade-up animate-duration-500 animate-ease-linear"
       >
-        <figure className="w-[30%]">
+        <figure className="min-w-[30%]">
           <img
             onClick={onClick}
             className="h-[100%] object-cover scale-[1.5] cursor-pointer"
@@ -36,7 +36,7 @@ const Card = ({
           >
             {headline}
           </a>
-          <span className="flex gap-4 items-center justify-start">
+          <span className="flex gap-4 items-center justify-start flex-wrap">
             <span>{description}</span> |
             <span className="flex gap-2 items-center justify-start">
               <FaLocationDot />
