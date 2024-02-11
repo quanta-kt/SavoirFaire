@@ -24,11 +24,20 @@ export default function Landing() {
           style={{
             backgroundImage: `url(${landing})`,
             backgroundSize: "cover",
+            position: 'sticky',
           }}
         ></div>
         <div className="absolute inset-0 bg-black bg-opacity-40 blur"></div>
         <TagLine text="Where Property Dreams become instant Reality!" />
         {/* <h1 className="animate-character">EXProperty</h1> */}
+        
+      </div>
+      <div>
+        <div className="h-100 w-100">
+          <h1>Hello there</h1>
+          <h1>Hello there</h1>
+   
+        </div>
         <Footer />
       </div>
     </>
