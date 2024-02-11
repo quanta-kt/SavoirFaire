@@ -73,14 +73,14 @@ const Details = ({}) => {
 
               {details.size && (
                 <Chip
-                  Class={"hover:p-[0.2rem] transition-all ease-in duration-1s"}
+                  Class={""}
                 >
                   {details.size} BHK
                 </Chip>
               )}
               <Chip
                 Class={
-                  "hover:p-[0.2rem] transition-all ease-in duration-1s flex gap-1"
+                   "flex gap-1"
                 }
               >
                 Deluxe
@@ -105,12 +105,12 @@ const Details = ({}) => {
               </Link>
             </div>
           </div>
-          <div className="w-full px-5 py-2 flex gap-5 justify-center">
+          <div className="w-full px-5 py-2 flex gap-[4rem] justify-center">
             <div
-              className="w-64 carousel rounded-lg  animate-fade-right animate-once animate-duration-1000 animate-delay-300
+              className="w-64 scale-150 carousel rounded-lg  animate-fade-right animate-once animate-duration-1000 animate-delay-300 
 "
             >
-              <div className="carousel-item w-full ">
+              <div className="carousel-item w-full hover:scale-[1.2] transition duration-500 ease-in">
                 <img
                   src="https://a0.muscache.com/im/pictures/miso/Hosting-48224861/original/abad3982-eea9-488a-aaa1-d122847595ba.jpeg?im_w=720"
                   className="w-full "
@@ -119,7 +119,7 @@ const Details = ({}) => {
               </div>
             </div>
             <div className="w-64 carousel rounded-box animate-fade-right animate-once animate-duration-1000 animate-delay-300">
-              <div className="carousel-item w-full">
+              <div className="carousel-item w-full hover:scale-[1.2] transition duration-500 ease-in">
                 <img
                   src="https://a0.muscache.com/im/pictures/miso/Hosting-19712496/original/6e648ff8-9fbc-4a15-bb25-df2b525af4df.jpeg?im_w=720"
                   className="w-full"
@@ -131,7 +131,7 @@ const Details = ({}) => {
               className="w-64 carousel rounded-box animate-fade-right animate-once animate-duration-1000 animate-delay-300
           "
             >
-              <div className="carousel-item w-full">
+              <div className="carousel-item w-full hover:scale-[1.2] transition duration-500 ease-in">
                 <img
                   src="https://a0.muscache.com/im/pictures/miso/Hosting-738879331663769852/original/d1f074a9-ed6c-4ffe-a3a6-b6c3578d205b.jpeg?im_w=720"
                   className="w-full"
