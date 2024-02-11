@@ -19,9 +19,11 @@ function App() {
     <Firebase>
       <Router>
         <Routes>
+          <Route path="/" element={<Demopage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dp" element={<Demopage />} />
+
           <Route path="/n" element={<NewLogin />} />
+
           <Route path="/app" element={<AppLayout />}>
             <Route index element={<Home />} />
             <Route path="listing" element={<Listing />} />

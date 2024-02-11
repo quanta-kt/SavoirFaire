@@ -4,10 +4,10 @@ import {
   signInWithPhoneNumber,
   getAuth,
   RecaptchaVerifier,
-  ConfirmationResult,
 } from "firebase/auth";
-import { useFirebase } from "../service/firebase";
+import { useCurrentUser, useFirebase } from "../service/firebase";
 import Button from "../components/Button";
+import { useNavigate } from "react-router";
 
 const Login = () => {
   const app = useFirebase();
@@ -15,10 +15,23 @@ const Login = () => {
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const [confirmationResult, setConfirmationResult] =
-    useState<ConfirmationResult>();
+  const [confirmationResult, setConfirmationResult] = useState();
 
-  function requestOtp(phone: string) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        navigate("/app/listing");
+      }
+    });
+
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
+  function requestOtp(phone) {
     setIsLoading(true);
 
     const recaptchaVerifier = new RecaptchaVerifier(auth, "login-button", {
@@ -35,27 +48,25 @@ const Login = () => {
       });
   }
 
-  function confirmOtp(otp: string) {
+  function confirmOtp(otp) {
     if (!confirmationResult) return;
 
     setIsLoading(true);
 
     confirmationResult
       .confirm(otp)
-      .then((result) => {
-        // TODO: Navigate
-      })
+      .then((result) => {})
       .catch((err) => {})
       .finally(() => setIsLoading(false));
   }
 
   return (
-    <div className=" login">
+    <div className="w-full">
       <div
-        className=" md:min-w-[30%] w-fit flex flex-col justify-center item-center items-center
+        className="my-[10%] mx-auto max-w[30%] md:min-w-[30%] w-fit flex flex-col justify-center item-center items-center
         h-fit md:px-5 md:py-5 px-1 py-2 gap-5 rounded-xl border-2 z-30"
       >
-        <label className="flex justify-center text-center w-full  font-semibold text-[2rem] gap-2 ">
+        <label className="flex justify-center text-center w-full font-semibold text-[2rem] gap-2 ">
           <FaUserAstronaut className="self-center " />
           Login
         </label>
@@ -110,10 +121,6 @@ function OtpFragment({ onSubmit }) {
   return (
     <>
       <div className="w-full px-2 self-center">
-        <div className="label">
-          <span className="label-text font-semibold">Phone number</span>
-        </div>
-
         <input
           value={otp}
           placeholder="Enter OTP"

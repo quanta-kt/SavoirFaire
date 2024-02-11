@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import landing from "../imgs/landing1.jpg";
 import { Navigate, useNavigate } from "react-router";
@@ -148,14 +149,7 @@ const Demopage = () => {
             </ul>
           </div>
         </section>
-        <div id="empty"></div>
       </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
       {/* <div id="main2">
         <br />
         <br />
@@ -184,10 +178,10 @@ const Demopage = () => {
         <br />
         <br />
       </div> */}
-      <div className="flex justify-center items-center w-full p-5 ">
-        <button className="btn btn-primary glass" onClick={Navigate("/n")}>
+      <div className="flex justify-center items-center w-full my-[120px]">
+        <Link className="btn btn-primary btn-lg px-24" to="/login">
           Signup
-        </button>
+        </Link>
       </div>
     </>
   );
