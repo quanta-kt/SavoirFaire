@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       daisyui: {
-        themes: ["light", "dark", "cupcake","dracula","nord"],
+        themes: ["light", "dark", "cupcake","dracula","nord","synthwave"],
       },
       backgroundImage: {
         'landing': "url(../imgs/landing.jpg)"
